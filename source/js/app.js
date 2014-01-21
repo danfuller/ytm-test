@@ -1,9 +1,10 @@
-define(["jquery", "components/catalogue"], function($, Catalogue) {
+define(["jquery", "components/catalogue", "components/experiment"], function($, Catalogue, Experiment) {
   var App;
   return App = (function() {
     function App() {
       console.log("Hello World :)");
-      App.Catologue = new Catalogue();
+      App.Catalogue = new Catalogue();
+      App.Experiment = new Experiment();
     }
 
     return App;

@@ -4,10 +4,14 @@ require.config({
     "ractive": "../vendor/ractive",
     "soundcloud-api": "http://connect.soundcloud.com/sdk",
     "text": "../vendor/text",
-    "rv": "../vendor/rv"
+    "rv": "../vendor/rv",
+    "io": "http://localhost:1234/socket.io/socket.io"
   },
   shim: {
     app: ["jquery"],
+    "io": {
+      "export": "io"
+    },
     'soundcloud-api': {
       exports: 'SC'
     }

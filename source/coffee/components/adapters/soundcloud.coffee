@@ -18,5 +18,5 @@ define ["jquery","soundcloud-api"], ($,SC) ->
 
 		getTracksByUser: (id,callback) ->
 			@_resolve 'http://soundcloud.com/'+id, (result) ->
-				SC.get "/users/"+result.id+"/tracks", { limit: 1000 }, callback
+				SC.get "/users/"+result.id+"/tracks", { limit: 50 }, callback
 

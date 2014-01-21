@@ -1,23 +1,106 @@
 .catalogue
+	position relative
+	top 100px
+	height 900px
+	text-transform uppercase
+
+
+.track
+	float left
+	width 300px
+	rembo(margin,0 0 0 15)
+
+	color COLOR_PRIMARY_FONT
+	-prefix(perspective, 500px)
+
+	&__artwork
+		width 100%
+		display block
+		z-index 1
+
+	&:nth-child(1) 
+		transition-delay 0 
+	&:nth-child(2) 
+		transition-delay 0.1s 
+	&:nth-child(3) 
+		transition-delay 0.2s
+	&:nth-child(4) 
+		transition-delay 0.3s	
+
+	&__section
+		background-color rgba(255,255,255,1)
+		padding 10px 10px
+		z-index 2
+
+		opacity 0 //A
+		-prefix(transform, translateY(30px)) //A
+
+		transition(all, 0.2s ease-in)
+
+		&--always
+			z-index 5
+
+			opacity 1 //A
+			-prefix(transform, translateY(0px)) //A
+
+		&--hover
+			opacity 0.2
+			-prefix(transform, translateY(0px)) //A
+
+		&--nopad
+			padding 0
+
+		&:nth-child(5) 
+			transition-delay 0.05s 
+		&:nth-child(6) 
+			transition-delay 0.1s
+		&:nth-child(7) 
+			transition-delay 0.15s	
+		&:nth-child(8) 
+			transition-delay 0.2s	
+		&:nth-child(9) 
+			transition-delay 0.25s
+
+	&__title
+		font-step 1
+		font-weight bold
+		height 70px
 	
-	position fixed
-	width 100%
-	height 100%
-	-webkit-perspective 1100
-	-webkit-perspective-origin 50%
-	overflow scroll
+	// .track States
+	&.active		
+		.track__section--active
+			opacity 1 //A
+			-prefix(transform, translateY(0px)) //A
 
-	&--item
-		background cover
-		position absolute
-		background-size cover
-		height 160px
-		width 160px
+		.btn
+			background: COLOR_PRIMARY_BACKGROUND
 
-		&--inner
-			height 60px
-			position absolute
-			bottom -60px
+			&:hover, &:active
+				background: lighten(COLOR_PRIMARY_BACKGROUND, 20%)
+
+	&:hover
+		position relative
+
+		.track__section--hover
+			opacity 1 //A
+
+	&:hover:not(.active)
+		.btn
+			background: darken(COLOR_SECONDARY_BACKGROUND, 5%)
+
+.flex__group
+	display -webkit-flex
+	flex 0 0 auto
+	
+	.flex__item
+		flex-grow 1
+		text-align center
+
+
+
+
+
+
 			
 
 

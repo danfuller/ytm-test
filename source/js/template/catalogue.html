@@ -1,9 +1,43 @@
-<div class="catalogue">
+<div class="catalogue" style="width:{{width}}px;">
 
 		
 	{{#tracks}}
-		<div class="catalogue--item" style="background-image:url('{{artwork_url}}'); left:{{left}}px; top:{{top}}px; -webkit-transform:rotateX({{rotateX}}deg) rotateY({{rotateY}}deg);">
-			<div class="catalogue--item--inner">{{title}}</div>
+		<div class="track {{#active}} active{{/active}}">
+			<img class="track__artwork" src="{{artwork_url}}')" /> 
+			<div class="track__section  track__section--always">
+				<div class="track__title">{{title}}</div>
+			</div>
+			<div class="track__section  track__section--hover  track__section--active  track__section--nopad  track__controls flex__group">
+				<div class="btn  btn--back  flex__item  hide">Back</div>
+				<div class="btn  btn--play  flex__item" on-click="activate">Play</div>
+				<div class="btn  btn--fwd  flex__item  hide">Forward</div>
+			</div>
+			<div class="track__section  track__section--active  track__seeker">
+				<div class="track__seeker__inner">Seeker</div>
+			</div>
+			<div class="track__section  track__section--active  track__stats  flex__group">
+				<div class="track__stat  flex__item">{{playback_count}}</div>
+				<div class="track__stat  flex__item">{{favoritings_count}}</div>
+				<div class="track__stat  flex__item">{{download_count}}</div>
+			</div>
+			<div class="track__section  track__section--active  track__section--nopad  track__soundcloud-control  flex__group">
+				<div class="btn  btn--sc-like  flex__item">Like</div>
+				<div class="btn  btn--sc-repost  flex__item">Repost</div>
+				<div class="btn  btn--sc-download  flex__item">Download</div>
+			</div>
+			<div class="track__section  track__section--active  track__section--nopad  track__share  flex__group">
+				<div class="btn  btn__share  btn__share--google  flex__item">G+</div>
+				<div class="btn  btn__share  btn__share--twitter  flex__item">TW</div>
+				<div class="btn  btn__share  btn__share--reddit  flex__item">RD</div>
+				<div class="btn  btn__share  btn__share--facebook  flex__item">FB</div>
+			</div>
+			<div class="track__section  track__section--active track__add-comment track__add-comment--open">
+				<div class="track__add-comment__inner">Add Comment</div>
+			</div>
+			<div class="track__section  track__section--active  track__comments">
+				<div class="track__comments__inner">View Comment</div>
+			</div>	
+			<div class="clear"></div>
 		</div>
 	{{/tracks}}
 		

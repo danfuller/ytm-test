@@ -20,7 +20,7 @@ define(["jquery", "soundcloud-api"], function($, SC) {
     SoundcloudAPI.prototype.getTracksByUser = function(id, callback) {
       return this._resolve('http://soundcloud.com/' + id, function(result) {
         return SC.get("/users/" + result.id + "/tracks", {
-          limit: 1000
+          limit: 50
         }, callback);
       });
     };
@@ -31,5 +31,5 @@ define(["jquery", "soundcloud-api"], function($, SC) {
 });
 
 /*
-//# sourceMappingURL=../../../../source/js/components/adapters/soundcloud.js.map
+//# sourceMappingURL=../../../../source/js/soundcloud.js.map
 */
