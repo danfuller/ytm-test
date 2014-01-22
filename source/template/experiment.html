@@ -1,8 +1,11 @@
-<div class="experiment" style="width:{{width}}px;">
+<div class="experiment">
 
 	{{#users}}
-		{{user}}
-		<div class="words">{{mouse.x}}{{mouse.y}}</div>
+		<div class="words hide" style="left:{{mouse.x - scroll}}px; top:{{mouse.y}}px">{{mouse.x}}/{{mouse.y}}</div>
 	{{/users}}
 
+	{{#user}}
+		<div class="words" style="left:{{user.mouse.x - scroll}}px; top:{{mouse.y}}px">{{username}}</div>
+	{{/user}}
+	<div class="btn experiment__join" on-click="join">Join</div>
 </div>

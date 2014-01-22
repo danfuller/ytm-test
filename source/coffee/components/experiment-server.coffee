@@ -45,8 +45,6 @@ connectHandler = (socket) =>
 disconnectHandler = (socket) =>
 	console.log 'disconnectHandler'
 
-	console.log users
-
 	# Remove user from users
 	for user, key in users
 		console.log user, key
@@ -60,8 +58,6 @@ disconnectHandler = (socket) =>
 
 # Mouse Move Handler
 mouseMoveHandler = (socket, data) =>
-
-	console.log sockets
 
 	for user, key in users
 		if user.id is socket.id

@@ -5,7 +5,7 @@ require.config({
     "soundcloud-api": "http://connect.soundcloud.com/sdk",
     "text": "../vendor/text",
     "rv": "../vendor/rv",
-    "io": "http://localhost:1234/socket.io/socket.io"
+    "io": "http://192.168.0.8:1234/socket.io/socket.io"
   },
   shim: {
     app: ["jquery"],

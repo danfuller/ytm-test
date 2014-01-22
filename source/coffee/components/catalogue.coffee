@@ -12,14 +12,13 @@ define ["jquery","ractive","components/adapters/soundcloud","rv!/template/catalo
 		init: ->
 			console.log "Hello Catalogue :)"
 
+			@_getTracks()
 			@_eventListeners()
 
-			Soundcloud = new Soundcloud()
-
+		_getTracks: ->
 			Soundcloud.getTracksByUser 'trap-door-official', @_addToCatalogue.bind(@)
 
 		_eventListeners: ->
-			#document.addEventListener 'mousemove', (e) => @_mousemoveEventListener(e)
 			@on 'activate', @_activate
 
 		_activate: (e) -> 
@@ -38,3 +37,4 @@ define ["jquery","ractive","components/adapters/soundcloud","rv!/template/catalo
 
 		_layout: ->
 			@set 'width', @data.tracks.length * 330
+	

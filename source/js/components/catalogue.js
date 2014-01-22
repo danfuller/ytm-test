@@ -9,8 +9,10 @@ define(["jquery", "ractive", "components/adapters/soundcloud", "rv!/template/cat
     },
     init: function() {
       console.log("Hello Catalogue :)");
-      this._eventListeners();
-      Soundcloud = new Soundcloud();
+      this._getTracks();
+      return this._eventListeners();
+    },
+    _getTracks: function() {
       return Soundcloud.getTracksByUser('trap-door-official', this._addToCatalogue.bind(this));
     },
     _eventListeners: function() {

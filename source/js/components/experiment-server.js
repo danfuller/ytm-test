@@ -39,7 +39,6 @@ connectHandler = function(socket) {
 disconnectHandler = function(socket) {
   var key, user, _i, _len;
   console.log('disconnectHandler');
-  console.log(users);
   for (key = _i = 0, _len = users.length; _i < _len; key = ++_i) {
     user = users[key];
     console.log(user, key);
@@ -54,7 +53,6 @@ disconnectHandler = function(socket) {
 
 mouseMoveHandler = function(socket, data) {
   var key, user, _i, _len;
-  console.log(sockets);
   for (key = _i = 0, _len = users.length; _i < _len; key = ++_i) {
     user = users[key];
     if (user.id === socket.id) {

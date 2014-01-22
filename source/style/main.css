@@ -379,7 +379,7 @@ html {
 body,
 html {
   width: 100%;
-  height: auto;
+  height: 100%;
   min-height: 100%;
   background: #fff;
 }
@@ -539,18 +539,14 @@ h6,
 .experiment {
   position: fixed;
   top: 0;
-  height: 100%;
-  width: 100%;
-  border: 10px solid #f0f;
+  left: 0;
 }
 .words {
-  font-size: 195px;
-  font-size: 19.5rem;
-  line-height: 210px;
-  line-height: 21rem;
-  position: fixed;
-  top: 400px;
-  left: 100px;
+  position: relative;
+  width: 10px;
+  height: 10px;
+  margin: -10px 0 0 -10px;
+  background-color: #ccc;
 }
 .btn {
   font-weight: bold;
@@ -652,9 +648,14 @@ h6,
 }
 .catalogue {
   position: relative;
-  top: 100px;
-  height: 900px;
+  height: 100%;
+  min-height: 100%;
   text-transform: uppercase;
+}
+.catalogue:after {
+  content: '';
+  display: block;
+  clear: both;
 }
 .track {
   float: left;
