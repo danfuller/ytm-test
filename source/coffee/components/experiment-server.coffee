@@ -7,7 +7,6 @@ io = require('socket.io').listen(server)
 
 users = []
 
-
 # Socket Events
 io.sockets.on 'connection', (socket) =>
 	console.log 'client connected'
@@ -52,14 +51,14 @@ disconnectHandler = (socket) =>
 			users.splice key, 1
 			break
 
-	console.log users
-
 	io.sockets.emit 'users_updated', users
 
 # Mouse Move Handler
 mouseMoveHandler = (socket, data) =>
 
+
 	for user, key in users
+		console.log user.id, socket.id
 		if user.id is socket.id
 			user.mouse = data
 			break

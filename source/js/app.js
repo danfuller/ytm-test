@@ -4,8 +4,8 @@ define(["jquery", "components/catalogue", "components/experiment", "components/a
     function App() {
       console.log("Hello World :)");
       Soundcloud.load();
-      App.Catalogue = new Catalogue();
       App.Experiment = new Experiment();
+      App.Catalogue = new Catalogue();
     }
 
     return App;

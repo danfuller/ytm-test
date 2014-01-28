@@ -9,8 +9,10 @@ define ["jquery","io","ractive","rv!/template/experiment.html","components/adapt
 		elLoaded: -> @init()
 
 		init: ->
-			console.log 'asd'
-			@socket = io.connect('http://192.168.0.8:1234');
+			#console.log 'asd'
+			@socket = io.connect('http://192.168.0.10:1234');
+
+			@set 'user', null
 
 			@_display()
 			@_events()
@@ -29,6 +31,9 @@ define ["jquery","io","ractive","rv!/template/experiment.html","components/adapt
 			@socket.emit 'connect'
 
 		_mouseMoveHandler: (Experiment, e) ->
+			if not @data.user 
+				return
+			
 			@set 'scroll', window.scrollX
 			mouse =
 				x:	e.pageX 
@@ -41,18 +46,20 @@ define ["jquery","io","ractive","rv!/template/experiment.html","components/adapt
 			console.log 'socketEvents'
 
 			@socket.on 'users_updated', (data) =>
-				#console.log data
+				console.log 'users'
 				@set 'users', data
 
 			@socket.on 'mouse_updated', (data) =>
-				#console.log data
-				user = null if user.id is @socket.id for user in data
+				user.self = true if user.id is @socket.socket.sessionid for user in data
+
+				console.log data
+				user = null  for user in data					
 				@set 'users', data
 
 		_joinHandler: ->
 			Soundcloud.auth success:@loadUser.bind(@)
 
 		loadUser: (data) ->
-			console.log @
+			#console.log @
 			@set 'user', data
 			console.log 'lu', @data.user

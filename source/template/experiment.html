@@ -1,11 +1,14 @@
-<div class="experiment">
+<div class="exp">
 
 	{{#users}}
-		<div class="words hide" style="left:{{mouse.x - scroll}}px; top:{{mouse.y}}px">{{mouse.x}}/{{mouse.y}}</div>
+		{{^self}}<div class="exp__users" style="left:{{mouse.x - scroll}}px; top:{{mouse.y}}px; background-image:url('{{user.avatar_url}}');"></div>{{/self}}
 	{{/users}}
 
 	{{#user}}
-		<div class="words" style="left:{{user.mouse.x - scroll}}px; top:{{mouse.y}}px">{{username}}</div>
+		<div class="exp__user" style="left:{{user.mouse.x - scroll}}px; top:{{mouse.y}}px; background-image:url('{{user.avatar_url}}');"></div>
+		<div class="exp__control">Hello {{user.username}}<div class="exp__control__avatar" style="background-image:url('{{user.avatar_url}}');"></div> </div>
 	{{/user}}
-	<div class="btn experiment__join" on-click="join">Join</div>
+	{{^user}}
+		<div class="btn exp__join " on-click="join">Join</div>
+	{{/user}}
 </div>

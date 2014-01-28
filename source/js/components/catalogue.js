@@ -7,6 +7,7 @@ define(["jquery", "ractive", "components/adapters/soundcloud", "rv!/template/cat
     data: {
       tracks: []
     },
+    colors: ['#EE7944', '#EE7944', '#45EEA9', '#EE4562'],
     init: function() {
       console.log("Hello Catalogue :)");
       this._getTracks();
@@ -37,6 +38,7 @@ define(["jquery", "ractive", "components/adapters/soundcloud", "rv!/template/cat
         if (i === 3) {
           track.active = true;
         }
+        track.color = this.colors[Math.floor(Math.random() * this.colors.length)];
         this.data.tracks.push(track);
       }
       return this._layout();
@@ -48,5 +50,5 @@ define(["jquery", "ractive", "components/adapters/soundcloud", "rv!/template/cat
 });
 
 /*
-//# sourceMappingURL=../../../source/js/components/catalogue.js.map
+//# sourceMappingURL=../../../source/js/catalogue.js.map
 */

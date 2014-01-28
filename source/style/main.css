@@ -536,17 +536,79 @@ h6,
   font-weight: normal;
   font-style: normal;
 }
-.experiment {
+.exp {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1000;
 }
-.words {
+.exp__users {
+  position: fixed;
+  bottom: 200px;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background-positon: center;
+  background-size: cover;
+  border-radius: 50%;
+  -moz-transform: scale(0.5);
+  -webkit-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
+  -moz-transition: all 0.1s ease-in;
+  -webkit-transition: all 0.1s ease-in;
+  -ms-transition: all 0.1s ease-in;
+  -o-transition: all 0.1s ease-in;
+  transition: all 0.1s ease-in;
+}
+.exp__users:hover {
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+}
+.exp__user {
   position: relative;
-  width: 10px;
-  height: 10px;
-  margin: -10px 0 0 -10px;
-  background-color: #ccc;
+  width: 30px;
+  height: 30px;
+  margin: 30px 0 0 -11px;
+  pointer-events: none;
+  background-positon: center;
+  background-size: cover;
+  border-radius: 50%;
+}
+.exp__join {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+}
+.exp__control {
+  bottom: 20px;
+  height: 42px;
+  height: 4.2rem;
+  font-size: 15px;
+  font-size: 1.5rem;
+  line-height: 21px;
+  line-height: 2.1rem;
+  line-height: 42px;
+  line-height: 4.2rem;
+  min-width: 42px;
+  min-width: 4.2rem;
+  position: fixed;
+  right: 20px;
+}
+.exp__control div {
+  margin-left: 10px;
+  float: right;
+}
+.exp__control__avatar {
+  min-height: 42px;
+  min-height: 4.2rem;
+  width: 42px;
+  width: 4.2rem;
+  background-size: cover;
 }
 .btn {
   font-weight: bold;
@@ -564,7 +626,7 @@ h6,
   min-width: 42px;
   min-width: 4.2rem;
   cursor: pointer;
-  background: #fff;
+  background: #ccc;
   color: #fff;
   border: none;
   vertical-align: top;
@@ -575,7 +637,7 @@ h6,
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 .btn.secondary {
-  background: #fff;
+  background: #ccc;
   color: #fff;
 }
 .btn.square {
@@ -644,13 +706,14 @@ h6,
 }
 .btn:hover.secondary,
 .btn:active.secondary {
-  background: #ccc;
+  background: #a3a3a3;
 }
 .catalogue {
   position: relative;
   height: 100%;
   min-height: 100%;
   text-transform: uppercase;
+  padding-top: 100px;
 }
 .catalogue:after {
   content: '';
@@ -662,7 +725,7 @@ h6,
   width: 300px;
   margin: 0 0 0 15px;
   margin: 0 0 0 1.5rem;
-  color: #fff;
+  color: #000;
   -moz-perspective: 500px;
   -webkit-perspective: 500px;
   -ms-perspective: 500px;
@@ -677,6 +740,7 @@ h6,
   width: 100%;
   display: block;
   z-index: 1;
+  height: 300px;
 }
 .track:nth-child(1) {
   -moz-transition-delay: 0;
@@ -823,7 +887,7 @@ h6,
   opacity: 1;
 }
 .track:hover:not(.active) .btn {
-  background: #f2f2f2;
+  background: #c2c2c2;
 }
 .flex__group {
   display: -webkit-flex;

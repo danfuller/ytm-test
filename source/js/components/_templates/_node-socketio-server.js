@@ -1,4 +1,4 @@
-var connectHandler, connectedUsers, createRoomHandler, disconnectHandler, io, joinRoomHandler, mouseMoveHandler, server, users,
+var connectHandler, connectedUsers, createRoomHandler, disconnectHandler, io, joinRoomHandler, server, users,
   _this = this;
 
 server = require('http').createServer().listen(1234);
@@ -15,9 +15,6 @@ io.sockets.on('connection', function(socket) {
   socket.on('disconnect', function(data) {
     return disconnectHandler(socket);
   });
-  socket.on('mousemove', function(data) {
-    return mouseMoveHandler(socket, data);
-  });
   socket.on('createRoom', function(data) {
     return createRoomHandler();
   });
@@ -27,18 +24,14 @@ io.sockets.on('connection', function(socket) {
 });
 
 connectHandler = function(socket) {
-  var user;
   console.log('connectHandler');
-  user = {
-    id: socket.id
-  };
-  users.push(user);
   return io.sockets.emit('users_updated', users);
 };
 
 disconnectHandler = function(socket) {
   var key, user, _i, _len;
   console.log('disconnectHandler');
+  console.log(users);
   for (key = _i = 0, _len = users.length; _i < _len; key = ++_i) {
     user = users[key];
     console.log(user, key);
@@ -47,20 +40,8 @@ disconnectHandler = function(socket) {
       break;
     }
   }
+  console.log(users);
   return io.sockets.emit('users_updated', users);
-};
-
-mouseMoveHandler = function(socket, data) {
-  var key, user, _i, _len;
-  for (key = _i = 0, _len = users.length; _i < _len; key = ++_i) {
-    user = users[key];
-    console.log(user.id, socket.id);
-    if (user.id === socket.id) {
-      user.mouse = data;
-      break;
-    }
-  }
-  return io.sockets.emit('mouse_updated', users);
 };
 
 createRoomHandler = function() {
@@ -81,5 +62,5 @@ connectedUsers = function() {
 
 
 /*
-//# sourceMappingURL=../../../source/js/components/experiment-server.js.map
+//# sourceMappingURL=../../../../source/js/_node-socketio-server.js.map
 */

@@ -8,8 +8,8 @@ define(["jquery", "io", "ractive", "rv!/template/experiment.html", "components/a
       return this.init();
     },
     init: function() {
-      console.log('asd');
-      this.socket = io.connect('http://192.168.0.8:1234');
+      this.socket = io.connect('http://192.168.0.10:1234');
+      this.set('user', null);
       this._display();
       this._events();
       this._socketEvents();
@@ -30,6 +30,9 @@ define(["jquery", "io", "ractive", "rv!/template/experiment.html", "components/a
     },
     _mouseMoveHandler: function(Experiment, e) {
       var mouse;
+      if (!this.data.user) {
+        return;
+      }
       this.set('scroll', window.scrollX);
       mouse = {
         x: e.pageX,
@@ -42,19 +45,25 @@ define(["jquery", "io", "ractive", "rv!/template/experiment.html", "components/a
       var _this = this;
       console.log('socketEvents');
       this.socket.on('users_updated', function(data) {
+        console.log('users');
         return _this.set('users', data);
       });
       return this.socket.on('mouse_updated', function(data) {
-        var user;
+        var user, _i, _len;
         if ((function() {
           var _i, _len, _results;
           _results = [];
           for (_i = 0, _len = data.length; _i < _len; _i++) {
             user = data[_i];
-            _results.push(user.id === this.socket.id);
+            _results.push(user.id === this.socket.socket.sessionid);
           }
           return _results;
         }).call(_this)) {
+          user.self = true;
+        }
+        console.log(data);
+        for (_i = 0, _len = data.length; _i < _len; _i++) {
+          user = data[_i];
           user = null;
         }
         return _this.set('users', data);
@@ -66,7 +75,6 @@ define(["jquery", "io", "ractive", "rv!/template/experiment.html", "components/a
       });
     },
     loadUser: function(data) {
-      console.log(this);
       this.set('user', data);
       return console.log('lu', this.data.user);
     }

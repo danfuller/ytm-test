@@ -8,5 +8,5 @@ define ["jquery","components/catalogue","components/experiment","components/adap
 			Soundcloud.load()
 
 
-			App.Catalogue = new Catalogue()
 			App.Experiment = new Experiment()
+			App.Catalogue = new Catalogue()

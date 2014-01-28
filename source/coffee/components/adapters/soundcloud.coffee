@@ -5,13 +5,14 @@ define ["jquery","soundcloud-api"], ($, SC) ->
 	class SoundcloudAPI
 
 		@CLIENTID = '4f4e41c6b6d715009ee6b8f62255b525'
-		@REDIRECT_URL = 'http://youtellme/callback.html'
+		@REDIRECT_URL = 'http://192.168.0.10/callback.html'
 		
 		@load: () ->
 			console.log 'init'
 			SC.initialize
 				client_id: SoundcloudAPI.CLIENTID
 				redirect_uri: SoundcloudAPI.REDIRECT_URL
+
 
 
 		@auth: (callback = {}) ->

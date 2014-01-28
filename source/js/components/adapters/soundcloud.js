@@ -5,7 +5,7 @@ define(["jquery", "soundcloud-api"], function($, SC) {
 
     SoundcloudAPI.CLIENTID = '4f4e41c6b6d715009ee6b8f62255b525';
 
-    SoundcloudAPI.REDIRECT_URL = 'http://youtellme/callback.html';
+    SoundcloudAPI.REDIRECT_URL = 'http://192.168.0.10/callback.html';
 
     SoundcloudAPI.load = function() {
       console.log('init');
@@ -48,5 +48,5 @@ define(["jquery", "soundcloud-api"], function($, SC) {
 });
 
 /*
-//# sourceMappingURL=../../../../source/js/components/adapters/soundcloud.js.map
+//# sourceMappingURL=../../../../source/js/soundcloud.js.map
 */
